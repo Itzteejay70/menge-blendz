@@ -17,9 +17,14 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8 md:py-4">
-        {/* Left */}
-        <div className="text-xs uppercase tracking-[0.2em] text-white/60 md:text-sm">
+        {/* Left spacer / desktop location */}
+        <div className="text-xs inline-flex items-center gap-3uppercase tracking-[0.2em] text-white/60 md:text-sm">
+         <span className="text-xl text-amber-400">✂</span>
+              <p className="text-sm font-extrabold tracking-wide md:text-4xl">
+                MENGE-<span className="text-amber-400">BLENDZ</span>
+              </p>
         </div>
+         
 
         {/* Desktop nav */}
         <nav className="mx-auto hidden items-center gap-8 text-sm uppercase tracking-[0.16em] md:flex">
@@ -51,15 +56,7 @@ export default function Navbar() {
             Book Your Cut
           </a>
 
-          {/* Mobile book icon/button */}
-          <a
-            href={setmoreUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center rounded-md border border-amber-300/40 bg-amber-300/10 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-amber-200 md:hidden"
-          >
-            Book
-          </a>
+         
 
           {/* Hamburger */}
           <button
@@ -92,10 +89,12 @@ export default function Navbar() {
       {/* Mobile menu dropdown */}
       <div
         className={`overflow-hidden border-t border-white/10 bg-black/80 backdrop-blur-xl transition-all duration-300 md:hidden ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="px-4 py-3">
+          {/* Mobile dropdown logo / brand */}
+       
           <div className="space-y-2">
             {navLinks.map((link) => (
               <NavLink
@@ -106,7 +105,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `block rounded-lg px-3 py-3 text-sm font-semibold uppercase tracking-wide transition ${
                     isActive
-                      ? "bg-amber-300/10 text-amber-300 border border-amber-300/20"
+                      ? "border border-amber-300/20 bg-amber-300/10 text-amber-300"
                       : "text-white/85 hover:bg-white/5"
                   }`
                 }
