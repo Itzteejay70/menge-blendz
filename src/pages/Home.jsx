@@ -22,9 +22,10 @@ export default function Home() {
 
         <div className="relative z-20 mx-auto flex min-h-screen max-w-7xl items-center px-4 pt-24 md:px-8 md:pt-28">
           <div className="max-w-3xl">
-            <div className="mb-5 inline-flex items-center gap-3 rounded-xl border border-white/10 bg-black/35 px-4 py-2 backdrop-blur">
-              <span className="text-3xl text-amber-400 md:text-4xl">✂</span>
-              <h1 className="text-2xl font-extrabold tracking-wide md:text-4xl">
+            {/* Hero logo - desktop only */}
+            <div className="mb-5 hidden max-w-full items-center gap-2 rounded-xl border border-white/10 bg-black/35 px-3 py-2 backdrop-blur md:inline-flex md:gap-3 md:px-4">
+              <span className="text-2xl text-amber-400 md:text-4xl">✂</span>
+              <h1 className="text-lg font-extrabold tracking-wide sm:text-xl md:text-4xl">
                 MENGE-<span className="text-amber-400">BLENDZ</span>
               </h1>
             </div>
@@ -55,37 +56,53 @@ export default function Home() {
         </div>
       </section>
 
-  {/* ================= ABOUT ================= */}
-<section id="about" className="mx-auto max-w-7xl px-4 py-14 md:px-8 md:py-20">
-  <div className="grid gap-6 md:grid-cols-2">
-    <div className="overflow-hidden rounded-2xl border border-white/10">
-      <img src={gallery[1]} alt="About Menge Blendz" className="h-full w-full object-cover" />
-    </div>
+{/* ================= ABOUT ================= */}
+<section id="about" className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-20">
+  <div className="grid gap-5 md:grid-cols-2 md:gap-6">
+    {/* Text card (mobile first + desktop right) */}
+    <div className="order-1 rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:order-2 md:p-8">
+     
 
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-
-
-      <h3 className="mt-3 text-3xl font-bold uppercase md:text-4xl">
+      <h3 className="mt-3 text-2xl font-bold uppercase leading-tight sm:text-3xl md:text-4xl">
         More Than A Barber,
         <span className="block text-amber-400">A Craftsmanship Standard</span>
       </h3>
 
-      <p className="mt-4 text-white/75">
+      <p className="mt-4 text-sm text-white/75 sm:text-base">
         Menge Blendz is more than a barbershop — it’s a premium grooming experience built on
         precision, style, and consistency. Every cut is delivered with attention to detail,
         giving clients a clean, confident, and polished look.
       </p>
 
-      <p className="mt-3 text-white/70">
+      <p className="mt-3 text-sm text-white/70 sm:text-base">
         From sharp fades to modern finishes, the goal is simple: create an experience that feels
         professional, comfortable, and worth coming back for.
       </p>
+
+      {/* Mobile-only image inside the same card (below text) */}
+      <div className="mt-5 overflow-hidden rounded-xl border border-white/10 md:hidden">
+        <img
+          src={gallery[1]}
+          alt="About Menge Blendz"
+          className="h-56 w-full object-cover object-center"
+        />
+      </div>
+
       <Link
         to="/about"
-        className="mt-6 inline-block border border-white/20 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/5"
+        className="mt-6 inline-block w-full border border-white/20 px-6 py-3 text-center text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-white/5 sm:w-auto"
       >
-        Learn More
+        ABOUT <span className="text-base">↗</span>
       </Link>
+    </div>
+
+    {/* Desktop-only image (left side) */}
+    <div className="order-2 hidden overflow-hidden rounded-2xl border border-white/10 md:order-1 md:block">
+      <img
+        src={gallery[1]}
+        alt="About Menge Blendz"
+        className="h-full w-full object-cover object-center"
+      />
     </div>
   </div>
 </section>

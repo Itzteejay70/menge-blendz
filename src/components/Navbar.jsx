@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { setmoreUrl } from "../data/siteData";
 
 const navLinks = [
@@ -17,14 +17,17 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8 md:py-4">
-        {/* Left spacer / desktop location */}
-        <div className="text-xs inline-flex items-center gap-3uppercase tracking-[0.2em] text-white/60 md:text-sm">
-         <span className="text-xl text-amber-400">✂</span>
-              <p className="text-sm font-extrabold tracking-wide md:text-4xl">
-                MENGE-<span className="text-amber-400">BLENDZ</span>
-              </p>
-        </div>
-         
+        {/* Mobile logo only */}
+        <Link
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className="inline-flex items-center gap-2 md:hidden"
+        >
+          <span className="text-xl text-amber-400">✂</span>
+          <p className="text-sm font-extrabold tracking-wide text-white">
+            MENGE-<span className="text-amber-400">BLENDZ</span>
+          </p>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="mx-auto hidden items-center gap-8 text-sm uppercase tracking-[0.16em] md:flex">
@@ -46,17 +49,7 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div className="flex items-center gap-2">
-          {/* Desktop booking button */}
-          <a
-            href={setmoreUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="hidden bg-amber-400 px-6 py-3 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-amber-300 md:inline-block"
-          >
-            Book Your Cut
-          </a>
-
-         
+       
 
           {/* Hamburger */}
           <button
@@ -94,7 +87,14 @@ export default function Navbar() {
       >
         <nav className="px-4 py-3">
           {/* Mobile dropdown logo / brand */}
-       
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="mb-3 flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] p-3"
+          >
+          
+          </Link>
+
           <div className="space-y-2">
             {navLinks.map((link) => (
               <NavLink
@@ -115,15 +115,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          <a
-            href={setmoreUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() => setMenuOpen(false)}
-            className="mt-3 block rounded-lg bg-amber-400 px-4 py-3 text-center text-sm font-bold uppercase tracking-wide text-black transition hover:bg-amber-300"
-          >
-            Book Your Cut
-          </a>
         </nav>
       </div>
     </header>
